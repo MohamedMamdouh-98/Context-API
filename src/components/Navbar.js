@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { productsContext } from "../App";
+import { productsContext } from "../context/productsContext";
 
 const Navbar = () => {
     const products = useContext(productsContext)
