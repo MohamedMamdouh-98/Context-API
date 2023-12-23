@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
+import { productsContext } from "../App";
 
-const Navbar = ({ products }) => {
+const Navbar = () => {
+    const products = useContext(productsContext)
+    console.log(products)
   return (
-    <div >
+    <div style={{
+        width:"100%",
+        height:"50px",
+        background:"#fafa",
+    }}>
       
-      <h3>Navbar : {products.length}</h3>
+      <h3>Products : {products.length}</h3>
     </div>
   );
 };

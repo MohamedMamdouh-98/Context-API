@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { createContext, useState } from "react";
 import Navbar from "./components/Navbar";
-
+import "./index.css";
+import Products from "./components/Products";
+export const productsContext = createContext();
 const App = () => {
   const [products, setProducts] = useState([
     { id: 1, title: "product1" },
@@ -8,14 +10,12 @@ const App = () => {
     { id: 3, title: "product3" },
   ]);
   return (
-    <div>
-      <Navbar products= {products}/>
-      {products.map((item) => (
-        <h3 key={item.id}>
-          {item.id}. {item.title}
-        </h3>
-      ))}
-    </div>
+    <productsContext.Provider value={products}>
+      <div>
+        <Navbar />
+        <Products/>
+      </div>
+    </productsContext.Provider>
   );
 };
 
